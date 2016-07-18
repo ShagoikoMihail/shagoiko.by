@@ -2,7 +2,7 @@
 
 namespace tests\codeception\unit\models;
 
-use app\models\ContactForm;
+use app\modules\main\models\ContactForm;
 use Yii;
 use yii\codeception\TestCase;
 use Codeception\Specify;
