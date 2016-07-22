@@ -1,7 +1,7 @@
 <?php
 $config = [
     'id' => 'app',
-    'defaultRoute' => 'main/default/index',
+    'defaultRoute' => 'post/default/index',
     'components' => [
         'user' => [
             'identityClass' => 'app\modules\user\models\User',

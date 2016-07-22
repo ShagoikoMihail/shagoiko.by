@@ -18,13 +18,9 @@ return [
         'contact' => [
             'class' => 'app\modules\contact\Module',
         ],
+
     ],
     'components' => [
-        'user' => [
-            'identityClass' => 'app\modules\user\models\User',
-            'enableAutoLogin' => true,
-            'loginUrl' => ['user/default/login'],
-        ],
         'db' => [
             'class' => 'yii\db\Connection',
             'charset' => 'utf8',
@@ -36,6 +32,7 @@ return [
             'rules' => [
                 '' => 'main/default/index',
                 'contact' => 'contact/default/index',
+                'about' => 'main/default/about',
                 '<_a:error>' => 'main/default/<_a>',
                 '<_a:(login|logout)>' => 'user/default/<_a>',
 
