@@ -9,6 +9,9 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
+        'post' => [
+            'class' => 'app\modules\post\Module',
+        ],
         'main' => [
             'class' => 'app\modules\main\Module',
         ],
@@ -30,7 +33,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'main/default/index',
+                '' => 'post/default/index',
                 'contact' => 'contact/default/index',
                 'about' => 'main/default/about',
                 '<_a:error>' => 'main/default/<_a>',
