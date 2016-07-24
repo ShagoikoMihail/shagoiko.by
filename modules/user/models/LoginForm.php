@@ -27,7 +27,7 @@ class LoginForm extends Model
         ];
     }
     /**
-     * Validates the password.
+     * Validates the username and password.
      * This method serves as the inline validation for password.
      */
     public function validatePassword()
@@ -35,10 +35,16 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError('password', 'Incorrect username or password.');
+                $this->addError('password', 'Неверное имя пользователя или пароль.');
+            } elseif ($user && $user->status == User::STATUS_BLOCKED) {
+                $this->addError('username', 'Ваш аккаунт заблокирован.');
+            } elseif ($user && $user->status == User::STATUS_WAIT) {
+                $this->addError('username', 'Ваш аккаунт не подтвежден.');
             }
         }
     }
+
+
     /**
      * Logs in a user using the provided username and password.
      * @return boolean whether the user is logged in successfully
