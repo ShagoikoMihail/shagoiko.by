@@ -2,19 +2,19 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
+
 /* @var $this yii\web\View */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $model \app\modules\contact\models\ContactForm */
-$this->title = 'Contact';
+$this->title = Yii::t('app', 'TITLE_CONTACT');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-default-index">
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
         <div class="alert alert-success">
-            Thank you for contacting us. We will respond to you as soon as possible.
+            <?= Yii::t('app', 'CONTACT_THANKS'); ?>
         </div>
 
         <p>
@@ -23,16 +23,14 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if (Yii::$app->mailer->useFileTransport): ?>
                 Because the application is in development mode, the email is not sent but saved as
                 a file under <code><?= Yii::getAlias(Yii::$app->mailer->fileTransportPath) ?></code>.
-                                                                                                    Please configure the <code>useFileTransport</code> property of the <code>mail</code>
+                                                                                                    Please configure the
+                <code>useFileTransport</code> property of the <code>mail</code>
                 application component to be false to enable email sending.
             <?php endif; ?>
         </p>
 
     <?php else: ?>
-
-        <p>
-            If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-        </p>
+        <p><?= Yii::t('app', 'CONTACT_TEXT'); ?></p>
 
         <div class="row">
             <div class="col-lg-5">
@@ -46,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                    <?= Html::submitButton(Yii::t('app', 'BUTTON_SEND'), ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>
                 <?php ActiveForm::end(); ?>
             </div>

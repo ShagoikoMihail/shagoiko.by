@@ -11,12 +11,10 @@ use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\modules\user\models\PasswordResetForm */
-$this->title = 'Reset password';
+$this->title = Yii::t('app', 'TITLE_RESET');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-default-reset-password">
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>Please choose your new password:</p>
 
     <div class="row">
@@ -24,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
             <div class="form-group">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton(Yii::t('app', 'BUTTON_SAVE'), ['class' => 'btn btn-primary']) ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>

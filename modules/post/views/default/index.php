@@ -1,6 +1,6 @@
 <?php
 
-$this->title = 'shagoiko.by';
+$this->title = Yii::$app->name;
 ?>
 <div class="post-default-index">
     <?php
